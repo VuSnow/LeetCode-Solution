@@ -25,18 +25,16 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        maxLength = 0
-        charSet = set()
-        left = 0
+        right_ptr = max_length = 0
+        char_set = []
 
-        for right in range(len(s)):
-            if s[right] not in charSet:
-                charSet.add(s[right])
-                maxLength = max(maxLength, right - left + 1)
+        for left_ptr in range(len(s)):
+            if (s[left_ptr] not in char_set):
+                char_set.append(s[left_ptr])
+                max_length = max(max_length, left_ptr - right_ptr + 1)
             else:
-                while s[right] in charSet:
-                    charSet.remove(s[left])
-                    left += 1
-                charSet.add(s[right])
+                while (s[left_ptr] in char_set):
+                    char_set.remove(s[right_ptr])
+                    right_ptr += 1
 
-        return maxLength
+        return max_length
