@@ -57,7 +57,7 @@ class solution(object):
             merged.append(num2[ptr2])
             ptr2 += 1
 
-        # print(merged)
+        print(merged)
         if len(merged) % 2 == 1:
             return float(merged[len(merged) // 2])
         else:
